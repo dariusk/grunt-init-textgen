@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>{%= displayName %}</title>
+    <link rel='stylesheet' href='css/style.css' type='text/css' media='all' />
+    <script src="permissions.json"></script>
+  </head>
+  <body>
+    <h2>{%= displayName %}</h2>
+    <div id="content">
+      loading...
+    </div>
+    <p><button id="generate">Generate another!</button></p>
+    <div>
+      <p><a href="" id="share">Share this link!</a></p>
+    </div>
+    <div id="twitterShare">
+    </div>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="lib/inflection.js"></script>
+    <script src="js/sharing.js"></script>
+    <script src="js/app.js"></script>
+    <script type="text/javascript">
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+    try {
+      var pageTracker = _gat._getTracker("UA-339043-1");
+      pageTracker._trackPageview();
+    } catch(err) {}
+    </script>
+ </body>
+</html>
