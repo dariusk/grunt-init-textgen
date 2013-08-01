@@ -1,11 +1,11 @@
 /* jshint unused: false */
 
 var sharing = {
-  sub: "SXGWLZPDOKFIVUHJYTQBNMACERxswgzldpkoifuvjhtybqmncare",
+  sub: 'SXGWLZPDOKFIVUHJYTQBNMACERxswgzldpkoifuvjhtybqmncare',
 
   encodeStr: function(uncoded) {
-    uncoded = uncoded.toUpperCase().replace(/^\s+|\s+$/g,"");
-    var coded = "";
+    uncoded = uncoded.toUpperCase().replace(/^\s+|\s+$/g,'');
+    var coded = '';
     var chr;
     for (var i = uncoded.length - 1; i >= 0; i--) {
       chr = uncoded.charCodeAt(i);
@@ -18,11 +18,11 @@ var sharing = {
 
   decodeStr: function(coded) {
     coded = decodeURIComponent(coded);  
-    var uncoded = "";
+    var uncoded = '';
     var chr;
     for (var i = coded.length - 1; i >= 0; i--) {
       chr = coded.charAt(i);
-      uncoded += (chr >= "a" && chr <= "z" || chr >= "A" && chr <= "Z") ?
+      uncoded += (chr >= 'a' && chr <= 'z' || chr >= 'A' && chr <= 'Z') ?
         String.fromCharCode(65 + 32 + this.sub.indexOf(chr) % 26) :
         chr; 
       }
@@ -30,12 +30,12 @@ var sharing = {
   },
 
   gup: function(name){
-    name = name.replace(/[\[]/,"\\[").replace(/[\]]/,"\\]");  
-    var regexS = "[\\?&]"+name+"=([^&#]*)";  
+    name = name.replace(/[\[]/,'\\[').replace(/[\]]/,'\\]');  
+    var regexS = '[\\?&]"+name+"=([^&#]*)';  
     var regex = new RegExp( regexS );  
     var results = regex.exec( window.location.href ); 
     if( results == null ) {
-      return "";  
+      return '';  
     }
     else {
   return results[1];

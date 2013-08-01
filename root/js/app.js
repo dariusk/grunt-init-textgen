@@ -9,8 +9,8 @@ Array.prototype.pick = function() {
 function generate(nounPlural, verb) {
   nounPlural = nounPlural || nouns.pick().pluralize();
   verb = verb || verbs.pick();
-  var generatedText = verb + " ALL the " + nounPlural;
-  $("#content").text(generatedText);
+  var generatedText = verb + ' ALL the ' + nounPlural;
+  $('#content').text(generatedText);
   var shareUrl = window.location.href.split('?')[0]+'?word='+sharing.encodeStr(verb)+'$'+sharing.encodeStr(nounPlural);
   $('#share').attr('href', shareUrl);
   $('.twitter-share-button').remove();
@@ -25,12 +25,12 @@ function getWords(suppressGenerate) {
     $.ajax({
       url: 'http://api.wordnik.com/v4/words.json/randomWords?minCorpusCount=10000&minDictionaryCount=5&excludePartOfSpeech=proper-noun,proper-noun-plural,proper-noun-posessive,suffix,family-name,idiom,affix&hasDictionaryDef=true&includePartOfSpeech=noun&limit=1000&maxLength=22&api_key='+key.API_KEY,
       async: false,
-      dataType:"json"
+      dataType:'json'
     }),
     $.ajax({
       url: 'http://api.wordnik.com//v4/words.json/randomWords?limit=1000&excludePartOfSpeech=adjective&hasDictionaryDef=true&includePartOfSpeech=verb-transitive&minCorpusCount=1000&api_key='+key.API_KEY,
       async: false,
-      dataType:"json"
+      dataType:'json'
     })
   ).done(function(noun_data, verb_data) {
     nouns = $.map(noun_data[0], function(el) { return el.word; });
@@ -42,7 +42,7 @@ function getWords(suppressGenerate) {
 }
 
 $('#generate').click(function() { generate(); });
-if (sharing.gup('word') === "") {
+if (sharing.gup('word') === '') {
   getWords();
 }
 else {
