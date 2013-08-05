@@ -38,7 +38,7 @@ var sharing = {
       return '';  
     }
     else {
-  return results[1];
+      return results[1];
     }
   }
 };
