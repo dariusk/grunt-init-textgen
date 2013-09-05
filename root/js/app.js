@@ -9,12 +9,13 @@ Array.prototype.pick = function() {
 function generate(nounPlural, verb) {
   nounPlural = nounPlural || nouns.pick().pluralize();
   verb = verb || verbs.pick();
-  var generatedText = verb + ' ALL the ' + nounPlural;
-  $('#content').text(generatedText);
+  var generatedText = '<em>' + verb + '</em> ALL the <em>' + nounPlural + '</em>';
+  var sharedText = verb + ' ALL the ' + nounPlural;
+  $('#content').html(generatedText);
   var shareUrl = window.location.href.split('?')[0]+'?word='+sharing.encodeStr(verb)+'$'+sharing.encodeStr(nounPlural);
   $('#share').attr('href', shareUrl);
   $('.twitter-share-button').remove();
-  $('#twitterShare').html('<a href="https://twitter.com/share" class="twitter-share-button" data-url="' + shareUrl + '" data-text="' + generatedText + '" data-lang="en">Tweet</a>');
+  $('#twitterShare').html('<a href="https://twitter.com/share" class="twitter-share-button" data-url="' + shareUrl + '" data-text="' + sharedText + '" data-lang="en">Tweet</a>');
   if (twttr.widgets) {
     twttr.widgets.load();
   }
